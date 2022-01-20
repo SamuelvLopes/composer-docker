@@ -9,7 +9,7 @@ services:
    environment:
     MYSQL_ROOT_PASSWORD: password_root
     MYSQL_DATABASE: wordpress
-    MYSQL_USER: matheus
+    MYSQL_USER: samuel
     MYSQL_PASSWORD: secret
   wordpress:
    depends_on:
@@ -18,4 +18,10 @@ services:
    ports:
     -"8000:80"
    restart: always
-   en
+   environment:
+    WORDPRESS_DB_HOST: db:3306
+    WORDPRESS_DB_USER: samuel
+    WORDPRESS_DB_PASSWORD: secret
+    WORDPRESS_DB_NAME: wordpress
+volumes:
+ db_data: {}
